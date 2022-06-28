@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: Hexo, GameBai">
-    <meta name="description" content="GameBai">
+    <meta name="keywords" content="标签: Hexo, Time is Never Enough">
+    <meta name="description" content="Time is Never Enough">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>标签: Hexo | GameBai</title>
+    <title>标签: Hexo | Time is Never Enough</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -44,7 +44,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">GameBai</span>
+                    <span class="logo-span">Time is Never Enough</span>
                 </a>
             </div>
             
@@ -132,7 +132,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">GameBai</div>
+        <div class="logo-name">Time is Never Enough</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -283,14 +283,15 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
+    <main id="main_wrap">
+        <div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
                 
-                欢迎来到我的博客
+                My Blog Homepage
                 
             </div>
 
@@ -428,7 +429,7 @@
 
 
 
-
+    </main>
     <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
@@ -465,7 +466,7 @@
                    loop='all'
                    order='random'
                    preload='auto'
-                   volume='0.3'
+                   volume='0.2'
                    list-folded='true'
         >
         </meting-js>
@@ -789,7 +790,34 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+    
+    <!-- pjax -->
+    <!-- 
+    <script type="text/javascript">
+        $.getScript("https://cdn.jsdelivr.net/npm/pjax/pjax.min.js",loadPjax)
+        function loadPjax(){
+            var pjax = new Pjax({
+                selectors: [
+                    "head title",
+                    'head meta[name="keywords"]',
+                    'head meta[name="description"]',
+                    "main#main_wrap"
+                ],
+                cache: true,
+                cacheBust: false
+            });
+        }
+
+        // Pjax请求错误时，跳转到404页面
+        document.addEventListener('pjax:error', (err) => {
+            if (err.request.status === 404) {
+                pjax.loadUrl('/404.html')
+            }
+        })
+    </script>
+ -->
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.8},"log":false});</script></body>
 
 </html>
+
