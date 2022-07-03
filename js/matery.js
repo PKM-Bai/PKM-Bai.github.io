@@ -106,13 +106,18 @@ $(function () {
             subHtmlSelectorRelative: true
         });
 
+        $(document).find('img[data-original]').each(function(){
+            $(this).parent().attr("href", $(this).attr("data-original"));
+        });
+
         // progress bar init
         const progressElement = window.document.querySelector('.progress-bar');
         if (progressElement) {
             new ScrollProgress((x, y) => {
                 progressElement.style.width = y * 100 + '%';
             });
-        }
+        };
+
     };
     articleInit();
 
@@ -145,7 +150,6 @@ $(function () {
             $backTop.slideDown(300);
         }
     }
-
     	
 	$(".nav-menu>li").hover(function(){
 		$(this).children('ul').stop(true,true).show();
