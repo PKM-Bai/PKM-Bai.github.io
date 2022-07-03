@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="宝可梦同人游戏开发日记 22-07-01, Time is Never Enough">
+    <meta name="keywords" content="宝可梦同人游戏开发日记 22-07-02, Time is Never Enough">
     <meta name="description" content="通过Unity 2021.2版本起内置的UI Toolkit和UI Builder制作一个物品编辑器，制作参考B站Up主M_Studio老师在Unity中文课堂发布的“《麦田物语》模拟经营游戏">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -19,7 +19,7 @@
 
     
 
-    <title>宝可梦同人游戏开发日记 22-07-01 | Time is Never Enough</title>
+    <title>宝可梦同人游戏开发日记 22-07-02 | Time is Never Enough</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -293,7 +293,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">宝可梦同人游戏开发日记 22-07-01</h1>
+                    <h1 class="description center-align post-title">宝可梦同人游戏开发日记 22-07-02</h1>
                 </div>
             </div>
         </div>
@@ -442,7 +442,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-01
+                    2022-07-02
                 </div>
                 
 
@@ -488,7 +488,7 @@
             <div id="articleContent">
                 <p>通过Unity 2021.2版本起内置的UI Toolkit和UI Builder制作一个物品编辑器，制作参考B站Up主<a target="_blank" rel="noopener" href="https://space.bilibili.com/370283072">M_Studio</a>老师在Unity 中文课堂发布的 “<a target="_blank" rel="noopener" href="https://learn.u3d.cn/tutorial/MFarmCourse">《麦田物语》模拟经营游戏开发教程</a>” 中第13~17讲，然后额外增加了查询和排序功能，虽然实现的很简单，但这也算是我在博客第一次写游戏开发的日记，主要记录我的成长历程和开发经验，便于我以后的总结。</p>
 <hr>
-<p><em>ps.我的代码块语言选择的Java，因为用C#没有代码高亮不知道为啥，为了方便观看就改成了Java</em></p>
+<p><em><strong>ps.我的代码块语言选择的Java，因为用C#没有代码高亮不知道为啥，为了方便观看就改成了Java</strong></em></p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="创建存储物品Item的数据库（ScriptableObject）"><a href="#创建存储物品Item的数据库（ScriptableObject）" class="headerlink" title="创建存储物品Item的数据库（ScriptableObject）"></a>创建存储物品Item的数据库（ScriptableObject）</h4><p>我们这个编辑器因为是要基于 <strong>ScriptableObject</strong> 数据进行展示和操作的，所以要先创建一个存储物品数据库的ScriptableObject文件</p>
 <p>创建ScriptableObject文件过程，先创建一个c#脚本，打开脚本后将当前类继承与<strong>ScriptableObject</strong>类，并且还需添加“[CreateAssetMenu()]”特性(Attribute)，</p>
 <p>其中的参数 <strong>fileName</strong>：新建出来的ScriptableObject文件的名称；<strong>menuName</strong>：创建菜单的级别目录</p>
@@ -522,28 +522,28 @@ using <span class="token class-name">UnityEngine</span><span class="token punctu
 
 
 
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702114423137.png" alt="image-20220702114423137"></p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702114448205.png" alt="image-20220702114448205"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702114423137.png" alt="image-20220702114423137"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702114448205.png" alt="image-20220702114448205"></p>
 <p>还需要添加一些物品数据，这样数据就准备完成了！</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702161914151.png" alt="image-20220702161914151"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702161914151.png" alt="image-20220702161914151"></p>
 <hr>
 <h3 id="创建Editor-Window"><a href="#创建Editor-Window" class="headerlink" title="创建Editor Window"></a>创建Editor Window</h3><p>在Unity 你现有的项目或者新项目中找到Assets&#x2F;Editor文件夹，没有的话可以手动创建，然后在Editor文件夹中最好再创建一个文件夹便于管理，然后再新建的文件夹上右键—&gt;Create—&gt;UI Toolkit—&gt;Editor Window</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702105414388.png" alt="image-20220702105414388"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702105414388.png" alt="image-20220702105414388">     </p>
 <p>然后输入名称点击Confirm 确定</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702105546150.png" alt="image-20220702105546150"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702105546150.png" alt="image-20220702105546150">    </p>
 <p>接下来会自动创建三个文件，并弹出一个编辑器的窗口，这三个文件分别以.cs、.uss、.uxml为后缀名</p>
 <ul>
 <li><strong>.cs</strong>：当然就是C#的脚本文件了</li>
 <li><a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/current/Manual/UIE-USS.html"><strong>.uss</strong></a>：可以修改UI Toolkit 控件的样式，用于设置元素的尺寸以及元素在屏幕上的绘制方式，例如 <code>backgroundColor</code> 或 <code>borderColor</code>。，类似于html中的css</li>
 <li><a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/current/Manual/UIE-UXML.html"><strong>.uxml</strong></a>：可扩展标记语言 (UXML) 文件是定义用户界面逻辑结构的文本文件，用于做出编辑器的UI界面</li>
 </ul>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702105943206.png" alt="image-20220702105943206"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702105943206.png" alt="image-20220702105943206"></p>
 <p>这样就相当于Editor Window创建成功了，还需要使用UI Builder通过图形化的方式对编辑器进行数据显示的布局。</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702223851857.png" alt="image-20220702223851857"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220702223851857.png" alt="image-20220702223851857"></p>
 <hr>
 <h3 id="设计布局"><a href="#设计布局" class="headerlink" title="设计布局"></a>设计布局</h3><h4 id="编辑界面"><a href="#编辑界面" class="headerlink" title="编辑界面"></a>编辑界面</h4><p>可以选择在这个UI Builder界面自己拖组件形成界面，也可以通过敲代码的形成界面，就像写html代码一样，我这里先贴出来我的最终效果的代码。</p>
 <p>使用方式就是复制粘贴到.uxml文件下的inlineStyle文件中。</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703103355560.png" alt="image-20220703103355560"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703103355560.png" alt="image-20220703103355560"></p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">ui:</span>UXML</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>ui</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UnityEngine.UIElements<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>uie</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UnityEditor.UIElements<span class="token punctuation">"</span></span> <span class="token attr-name">xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span> <span class="token attr-name">engine</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UnityEngine.UIElements<span class="token punctuation">"</span></span> <span class="token attr-name">editor</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UnityEditor.UIElements<span class="token punctuation">"</span></span> <span class="token attr-name">noNamespaceSchemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../../UIElementsSchema/UIElements.xsd<span class="token punctuation">"</span></span> <span class="token attr-name">editor-extension-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>True<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">ui:</span>VisualElement</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Container<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">flex-grow</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span> <span class="token property">flex-direction</span><span class="token punctuation">:</span> row<span class="token punctuation">;</span> <span class="token property">min-width</span><span class="token punctuation">:</span> 700px<span class="token punctuation">;</span> <span class="token property">min-height</span><span class="token punctuation">:</span> 550px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">ui:</span>VisualElement</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Left<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span> <span class="token property">width</span><span class="token punctuation">:</span> 30%<span class="token punctuation">;</span> <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span> <span class="token property">-unity-font-definition</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span> <span class="token property">-unity-font</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>&amp;apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;amp;guid=0000000000000000e000000000000000&amp;amp;type=0#Arial&amp;apos;<span class="token punctuation">)</span></span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
@@ -591,15 +591,16 @@ using <span class="token class-name">UnityEngine</span><span class="token punctu
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">ui:</span>VisualElement</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">ui:</span>UXML</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>​    </p>
 <p>记得先把.cs脚本中将使用C#和USS添加的两个Hello World的代码注释掉或者删除</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703131155266.png" alt="注释或者删除这个区域的代码"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703131155266.png" alt="注释或者删除这个区域的代码"></p>
 <p>实现的效果就是这样的：</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703103901198.png" alt="实现效果"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703103901198.png" alt="实现效果"></p>
 <hr>
 <h4 id="每条物品的显示模板"><a href="#每条物品的显示模板" class="headerlink" title="每条物品的显示模板"></a>每条物品的显示模板</h4><p>这样还没有完，还需要设计一个在左侧列表每条道具数据展示的Slot模板，由道具<strong>图片</strong>+ID_Name的<strong>文本</strong>组成</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703104256899.png" alt="实际效果图"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703104256899.png" alt="实际效果图"></p>
 <p>通过同样的方式，创建一个UI Document，命名为ItemSlotTemplate（命名无所谓）</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703104822653.png" alt="UI Document的创建过程"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703104822653.png" alt="UI Document的创建过程"></p>
 <p>大家可以按照自己的需求自行发挥，或者参考我这个现有的。（使用方式参考上面）</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;ui:UXML xmlns:ui&#x3D;&quot;UnityEngine.UIElements&quot; xmlns:uie&#x3D;&quot;UnityEditor.UIElements&quot; xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot; engine&#x3D;&quot;UnityEngine.UIElements&quot; editor&#x3D;&quot;UnityEditor.UIElements&quot; noNamespaceSchemaLocation&#x3D;&quot;..&#x2F;..&#x2F;..&#x2F;UIElementsSchema&#x2F;UIElements.xsd&quot; editor-extension-mode&#x3D;&quot;False&quot;&gt;
     &lt;ui:VisualElement name&#x3D;&quot;Row&quot; style&#x3D;&quot;height: 50px; -unity-text-align: middle-left; justify-content: flex-start; flex-direction: row; align-items: center;&quot;&gt;
@@ -608,7 +609,7 @@ using <span class="token class-name">UnityEngine</span><span class="token punctu
     &lt;&#x2F;ui:VisualElement&gt;
 &lt;&#x2F;ui:UXML&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703105902390.png" alt="实现效果"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703105902390.png" alt="实现效果"></p>
 <p>这些弄完设计界面的工作就做完了，下面开始实现功能。</p>
 <hr>
 <h3 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h3><h4 id="显示左侧的物品列表"><a href="#显示左侧的物品列表" class="headerlink" title="显示左侧的物品列表"></a>显示左侧的物品列表</h4><p>读取ItemDatabase_SO中所有物品数据，然后显示在左侧区域</p>
@@ -689,7 +690,7 @@ iconPreview <span class="token operator">=</span> <span class="token class-name"
 <span class="token comment">// 生成ListView</span>
 <span class="token class-name">GenerateListView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703140645499.png" alt="物品列表实现效果"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703140645499.png" alt="物品列表实现效果"></p>
 <hr>
 <h4 id="右侧的物品信息展示"><a href="#右侧的物品信息展示" class="headerlink" title="右侧的物品信息展示"></a>右侧的物品信息展示</h4><p>创建 <strong>OnListSelectionChange()</strong> 和 <strong>GetItemDetails()</strong> 两个方法</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 当选择列表中物品时触发</span>
@@ -708,7 +709,7 @@ itemListView<span class="token punctuation">.</span>onSelectionChange <span clas
 
 
 <p>需要先确认一下你的编辑器其中这几个需要展示修改的数据组件名是什么</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703135212380.png" alt="确认组件 Name"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703135212380.png" alt="确认组件 Name"></p>
 <p>然后方便通过Q&lt;组件类&gt;(“组件名”)来获取它们，（IEnumerable&lt;&gt; First()的命名空间 using System.Linq;)</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// *获取物品的详情数据</span>
    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token class-name">GetItemDetails</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -755,11 +756,11 @@ itemListView<span class="token punctuation">.</span>onSelectionChange <span clas
        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703140815164.png" alt="物品信息展示效果"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703140815164.png" alt="物品信息展示效果"></p>
 <p>这样就可以实现显示和修改ScriptableObject中的物品列表数据了！</p>
 <hr>
 <h4 id="添加物品"><a href="#添加物品" class="headerlink" title="添加物品"></a>添加物品</h4><p>当然需要先添加一个添加的按钮了，并且记住这个Button的Name，便于后面代码获取。</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703141948668.png" alt="添加按钮"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703141948668.png" alt="添加按钮"></p>
 <p>在 <strong>CreateGUI()</strong> 中获取添加按钮的Button 并且添加点击触发事件函数</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name"><span class="token namespace">root<span class="token punctuation">.</span></span>Q</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Button</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token string">"AddButton"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clicked <span class="token operator">+=</span> <span class="token class-name">OnAddItemClicked</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -775,10 +776,10 @@ itemListView<span class="token punctuation">.</span>onSelectionChange <span clas
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>好的，然后打开编辑器测试一下，成功添加！</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/%E6%B7%BB%E5%8A%A0%E7%89%A9%E5%93%81.gif" alt="添加物品"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/%E6%B7%BB%E5%8A%A0%E7%89%A9%E5%93%81.gif" alt="添加物品"></p>
 <hr>
 <h4 id="删除物品"><a href="#删除物品" class="headerlink" title="删除物品"></a>删除物品</h4><p>同样添加一个删除的Button</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703143634508.png" alt="删除按钮"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703143634508.png" alt="删除按钮"></p>
 <p>在 <strong>CreateGUI()</strong> 中获取删除按钮的Button 并且添加点击触发事件函数</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name"><span class="token namespace">root<span class="token punctuation">.</span></span>Q</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Button</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token string">"DeleteButton"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clicked <span class="token operator">+=</span> <span class="token class-name">OnDelItemClicked</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -791,12 +792,12 @@ itemListView<span class="token punctuation">.</span>onSelectionChange <span clas
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>打开编辑器测试一下，也删除成功！</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/%E5%88%A0%E9%99%A4%E7%89%A9%E5%93%81.gif" alt="删除物品"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/%E5%88%A0%E9%99%A4%E7%89%A9%E5%93%81.gif" alt="删除物品"></p>
 <hr>
 <h4 id="列表排序"><a href="#列表排序" class="headerlink" title="列表排序"></a>列表排序</h4><p>在编辑器添加一个Dropdown的组件，有下拉框的功能，其中有两个属性的参数需要注意</p>
 <p><strong>Index</strong>：是在打开编辑器时默认选择的下拉列表中选项的索引，这里默认的-1代表什么都不选为空，如果是0则是选择下拉列表中第一个选项</p>
 <p><strong>Choices</strong>：下拉列表中的选项，中间用英文逗号”,”隔开</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703145846819.png" alt="添加Dropdown组件"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703145846819.png" alt="添加Dropdown组件"></p>
 <p>先声明三个变量</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token class-name">DropdownField</span> sortDropdown<span class="token punctuation">;</span>         <span class="token comment">// 排序的下拉框组件</span>
 <span class="token keyword">private</span> string<span class="token punctuation">[</span><span class="token punctuation">]</span> sortMode<span class="token punctuation">;</span>                  <span class="token comment">// 所有排序模式</span>
@@ -837,10 +838,10 @@ currentSortMode <span class="token operator">=</span> sortDropdown<span class="t
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>打开编辑器测试一下，成功！</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/%E7%89%A9%E5%93%81%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F.gif" alt="物品列表排序"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/%E7%89%A9%E5%93%81%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F.gif" alt="物品列表排序"></p>
 <hr>
 <h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><p>老样子，先添加Text Field组件，是一个文本+输入框的组合，正好符合基础搜索框的条件。</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703151348039.png" alt="image-20220703151348039"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/image-20220703151348039.png" alt="image-20220703151348039"></p>
 <p>在 <strong>CreateGUI()</strong> 中为搜索栏注册回调函数事件</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 物品搜索栏</span>
 <span class="token class-name"><span class="token namespace">root<span class="token punctuation">.</span></span>Q</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TextField</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token string">"Search"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>RegisterValueChangedCallback<span class="token generics"><span class="token punctuation">&lt;</span>string<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">OnSearchBarTextChange</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -882,7 +883,7 @@ currentSortMode <span class="token operator">=</span> sortDropdown<span class="t
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>OK，然后我们再打开编辑器测试一下，没有问题</p>
-<p><img src="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/%E7%89%A9%E5%93%81%E6%90%9C%E7%B4%A2.gif" alt="物品搜索"></p>
+<p><img src="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/%E7%89%A9%E5%93%81%E6%90%9C%E7%B4%A2.gif" alt="物品搜索"></p>
 <hr>
 <hr>
 <h3 id="完整源码"><a href="#完整源码" class="headerlink" title="完整源码"></a>完整源码</h3><p><strong>一定要注意脚本文件名要和类名一致！！ 还有里面文件的路径不一定和你自己项目中的文件路径一致，包括组件名</strong></p>
@@ -1198,7 +1199,7 @@ using <span class="token class-name">UnityEngine</span><span class="token punctu
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://PKM-Bai.github.io/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/">http://PKM-Bai.github.io/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/</a>
+                    <a href="http://PKM-Bai.github.io/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/">http://PKM-Bai.github.io/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1638,12 +1639,12 @@ using <span class="token class-name">UnityEngine</span><span class="token punctu
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/07/01/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/">
+                <a href="/2022/07/02/bao-ke-meng-tong-ren-you-xi-kai-fa-ri-ji-22-07-01/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/22.png" class="responsive-img" alt="宝可梦同人游戏开发日记 22-07-01">
+                        <img src="/medias/featureimages/22.png" class="responsive-img" alt="宝可梦同人游戏开发日记 22-07-02">
                         
-                        <span class="card-title">宝可梦同人游戏开发日记 22-07-01</span>
+                        <span class="card-title">宝可梦同人游戏开发日记 22-07-02</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1654,7 +1655,7 @@ using <span class="token class-name">UnityEngine</span><span class="token punctu
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-02
                             </span>
                         <span class="publish-author">
                             
