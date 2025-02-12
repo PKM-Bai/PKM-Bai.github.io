@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="zh-CN"><head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, Time is Never Enough">
+    <meta name="keywords" content="分类: 游戏开发, Time is Never Enough">
     <meta name="description" content="Time is Never Enough">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | Time is Never Enough</title>
+    <title>分类: 游戏开发 | Time is Never Enough</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -380,7 +380,7 @@
                 
                 <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" title="游戏开发: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F5EEF8;">游戏开发
+                             chip-active " style="background-color: #F5EEF8;">游戏开发
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -409,65 +409,69 @@
 
 
     
-    <style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
-</div>
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/02/12/25-02-12-gamedevelopment/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/loading.gif" data-original="/medias/featureimages/18.png" class="responsive-img" alt="25-02-12 回合制卡牌游戏开发记录">
+                            
+                            <span class="card-title">25-02-12 回合制卡牌游戏开发记录</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                游戏开发-技术记录
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="post-category">
+                                    游戏开发
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
-
-    
-
-    let option = {
-        title: {
-            left: 'center',
-            text: '文章分类雷达图',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
-            }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#3C4858'
-                }
-            },
-            indicator: [{"name":"日常","max":4},{"name":"游戏开发","max":4},{"name":"实用软件or工具分享","max":4},{"name":"宝可梦同人游戏开发日记","max":4}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: ['#3ecf8e'],
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [3,1,1,1],
-                    name : '文章分类数量'
-                }
-            ]
-        }]
-    };
-
-    radarChart.setOption(option);
-</script>
-
-    
-
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Unity/">
+                            <span class="chip bg-color">Unity</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">
+                            <span class="chip bg-color">游戏开发</span>
+                        </a>
+                        
+                        <a href="/tags/C/">
+                            <span class="chip bg-color">C#</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
+
 
 
     <footer class="page-footer bg-color">
