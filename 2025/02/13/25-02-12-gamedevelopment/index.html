@@ -381,7 +381,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-13
+                    2025-02-14
                 </div>
                 
 
@@ -489,7 +489,7 @@ upgradePreview<span class="token punctuation">.</span><span class="token generic
 <p><strong>2. 让拖拽卡牌的效果更还原杀戮尖塔的样子。</strong></p>
 <ul>
 <li><p>我仔细观察了杀戮尖塔中在拖拽卡牌到敌人身上和释放时的效果和麦扣老师教程中实现的效果还是有些差别，于是我就尝试修改了卡牌拖拽的效果。</p>
-<p>首先先看看杀戮尖塔战斗中的卡牌拖拽效果：<br><img src="/2025/02/13/25-02-12-gamedevelopment/Slay_the_Sprite-CardDragHander.gif" alt="Slay the Sprite CardDragHander"></p>
+<p>首先先看看杀戮尖塔战斗中的卡牌拖拽效果：<br><img src="/2025/02/13/25-02-12-gamedevelopment/Slay_the_Sprite-CardDragHander.gif" alt="杀戮尖塔中的卡牌拖拽效果"></p>
 <ol>
 <li>鼠标移动到卡牌时，会放大、旋转效果回正、卡牌上移，相邻的卡牌会向当前移动的卡牌反方向，移动一小段，然后将手上移动的卡牌能完整的展示出来。</li>
 <li>拖拽非攻击牌时，可以拖拽着卡牌移动到任何位置，但在松手时，如果超过一定的y轴高度，就会释放，否则返回到手牌中，或者移动过程中按下鼠标右键也会回到手牌中。</li>
@@ -582,7 +582,9 @@ upgradePreview<span class="token punctuation">.</span><span class="token generic
 <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnMouseExitTorCard</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">object</span></span> obj<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
     <span class="token function">CardLayoutReset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre></li>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>展示出来的效果就是这样了<br><img src="/2025/02/13/25-02-12-gamedevelopment/game-CardDragHander.gif" alt="自己修改后卡牌拖拽的效果"></p>
+</li>
 </ul>
 <p><strong>今天暂时就写到这里了，后面有时间还会继续发文章到博客这里。</strong></p>
 
